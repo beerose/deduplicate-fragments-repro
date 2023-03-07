@@ -30,6 +30,8 @@ const EventQueryDocument = graphql(`
 
 const printed = print(EventQueryDocument);
 
+console.log(printed);
+
 assert.strictEqual(
   printed.match(/fragment SharedComponentFragment on User/g)?.length,
   1
