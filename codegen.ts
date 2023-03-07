@@ -2,13 +2,13 @@ import { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
   schema: "schema.graphql",
-  documents: ["!gql/**/*"],
+  documents: ["test.ts", "!gql/**/*"],
   generates: {
     "./gql/": {
       preset: "client",
-      plugins: []
-    }
-  }
+      plugins: [],
+    },
+  },
 };
 
 export default config;

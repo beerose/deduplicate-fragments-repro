@@ -1,5 +1,6 @@
 import { graphql } from "./gql";
 import { print } from "graphql";
+import * as assert from "assert";
 
 const SharedComponentFragment = graphql(`
   fragment SharedComponentFragment on User {
@@ -27,4 +28,9 @@ const EventQueryDocument = graphql(`
   }
 `);
 
-console.log(print(EventQueryDocument));
+const printed = print(EventQueryDocument);
+
+assert.strictEqual(
+  printed.match(/fragment SharedComponentFragment on User/g)?.length,
+  1
+);
