@@ -1,6 +1,6 @@
 /* eslint-disable */
-import * as types from './graphql';
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import * as types from "./graphql";
+import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 
 /**
  * Map of all GraphQL operations in the project.
@@ -13,23 +13,32 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  fragment SharedComponentFragment on User {\n    id\n    username\n  }\n": types.SharedComponentFragmentFragmentDoc,
-    "\n  fragment EventHeaderComponentFragment on Event {\n    owner {\n      ...SharedComponentFragment\n    }\n  }\n": types.EventHeaderComponentFragmentFragmentDoc,
-    "\n  query EventQuery($eventId: ID!) {\n    event(id: $eventId) {\n      ...EventHeaderComponentFragment\n      attendees {\n        ...SharedComponentFragment\n      }\n    }\n  }\n": types.EventQueryDocument,
+  "\n  fragment SharedComponentFragment on User {\n    id\n    username\n  }\n":
+    types.SharedComponentFragmentFragmentDoc,
+  "\n  fragment EventHeaderComponentFragment on Event {\n    owner {\n      ...SharedComponentFragment\n    }\n  }\n":
+    types.EventHeaderComponentFragmentFragmentDoc,
+  "\n  query EventQuery($eventId: ID!) {\n    event(id: $eventId) {\n      ...EventHeaderComponentFragment\n      attendees {\n        ...SharedComponentFragment\n      }\n    }\n  }\n":
+    types.EventQueryDocument,
 };
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment SharedComponentFragment on User {\n    id\n    username\n  }\n"): (typeof documents)["\n  fragment SharedComponentFragment on User {\n    id\n    username\n  }\n"];
+export function graphql(
+  source: "\n  fragment SharedComponentFragment on User {\n    id\n    username\n  }\n"
+): (typeof documents)["\n  fragment SharedComponentFragment on User {\n    id\n    username\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment EventHeaderComponentFragment on Event {\n    owner {\n      ...SharedComponentFragment\n    }\n  }\n"): (typeof documents)["\n  fragment EventHeaderComponentFragment on Event {\n    owner {\n      ...SharedComponentFragment\n    }\n  }\n"];
+export function graphql(
+  source: "\n  fragment EventHeaderComponentFragment on Event {\n    owner {\n      ...SharedComponentFragment\n    }\n  }\n"
+): (typeof documents)["\n  fragment EventHeaderComponentFragment on Event {\n    owner {\n      ...SharedComponentFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query EventQuery($eventId: ID!) {\n    event(id: $eventId) {\n      ...EventHeaderComponentFragment\n      attendees {\n        ...SharedComponentFragment\n      }\n    }\n  }\n"): (typeof documents)["\n  query EventQuery($eventId: ID!) {\n    event(id: $eventId) {\n      ...EventHeaderComponentFragment\n      attendees {\n        ...SharedComponentFragment\n      }\n    }\n  }\n"];
+export function graphql(
+  source: "\n  query EventQuery($eventId: ID!) {\n    event(id: $eventId) {\n      ...EventHeaderComponentFragment\n      attendees {\n        ...SharedComponentFragment\n      }\n    }\n  }\n"
+): (typeof documents)["\n  query EventQuery($eventId: ID!) {\n    event(id: $eventId) {\n      ...EventHeaderComponentFragment\n      attendees {\n        ...SharedComponentFragment\n      }\n    }\n  }\n"];
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -42,11 +51,12 @@ export function graphql(source: "\n  query EventQuery($eventId: ID!) {\n    even
  *
  * The query argument is unknown!
  * Please regenerate the types.
-**/
+ **/
 export function graphql(source: string): unknown;
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
 }
 
-export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> =
+  TDocumentNode extends DocumentNode<infer TType, any> ? TType : never;
